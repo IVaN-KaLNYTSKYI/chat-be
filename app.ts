@@ -126,3 +126,5 @@ io.on('connection', (socket: Socket) => {
         }
     });
 });
+
+export default app;
