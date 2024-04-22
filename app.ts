@@ -15,8 +15,10 @@ interface Message {
     username: string;
     type: string;
 }
+
+
 interface TransactionInfo {
-    date: Date;
+    date: bigint;
     amount: string;
     walletFrom: string;
     walletTo: string;
@@ -47,7 +49,7 @@ const fetchTransactionInfo = async (txid: string): Promise<TransactionInfo> => {
              const amount = web3.utils.fromWei(transaction.value, 'ether');
             const block = await web3.eth.getBlock(transaction.blockNumber);
             const timestamp = block.timestamp;
-            const date = timestamp;
+            const date =  timestamp;
             const walletFrom = transaction.from;
             const walletTo = transaction.to;
 
