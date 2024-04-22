@@ -108,7 +108,12 @@ io.on('connection', (socket: Socket) => {
             const processMessage1 =  await processMessage(message)
             const newMessage: Message = {date, message:processMessage1, username, type: 'user'};
             messageList[room].push(newMessage);
-            socket.broadcast.to(room).emit('chat_message', newMessage);
+            if (socket.rooms.has(room)) {
+                socket.broadcast.to(room).emit('chat_message', newMessage);
+            }
+            else {
+                console.log(`Користувач ${username} не знаходиться в кімнаті ${room}`);
+            }
         }
     });
 
