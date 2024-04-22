@@ -1,7 +1,7 @@
 [build]
   publish = "netlify/"
 [functions]
-  external_node_modules = ["express"]
+  external_node_modules = ["express","socket.io","web3"]
   node_bundler = "esbuild"
 [[redirects]]
   force = true
