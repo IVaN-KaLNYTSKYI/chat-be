@@ -110,6 +110,7 @@ io.on('connection', (socket) => {
         let userIndex = users.findIndex((user) => user.id === socket.id);
         if (userIndex !== -1) {
             users.splice(userIndex, 1);
+
         }
     });
 });
