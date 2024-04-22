@@ -44,10 +44,13 @@ const fetchTransactionInfo = async (txid: string): Promise<TransactionInfo> => {
 
         console.log(transaction);
         if (transaction) {
-            const amount = web3.utils.fromWei(transaction.value, 'ether');
-            const date = new Date();
+             const amount = web3.utils.fromWei(transaction.value, 'ether');
+            const block = await web3.eth.getBlock(transaction.blockNumber);
+            const timestamp = block.timestamp;
+            const date = timestamp;
             const walletFrom = transaction.from;
             const walletTo = transaction.to;
+
 
             return { date, amount, walletFrom, walletTo };
         } else {
