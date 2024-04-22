@@ -4,7 +4,7 @@
   "main": "netlify/functions/api.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "^4.19.2"
